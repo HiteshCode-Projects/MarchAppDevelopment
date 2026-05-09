@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "643169100084",
+    "project_id": "auth-march-c153f",
+    "storage_bucket": "auth-march-c153f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643169100084:android:038ee9a4f957c7a85c4561",
+        "android_client_info": {
+          "package_name": "com.example.firebase_auth_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYHfn9DCRV4ebOrsVlMfRZ_kR9Bndz5uo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
