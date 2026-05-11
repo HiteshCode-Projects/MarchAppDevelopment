@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'home_screen.dart';
 
 class AuthScreen extends StatefulWidget {
   @override
@@ -18,25 +16,30 @@ class _AuthScreenState extends State<AuthScreen> {
   final auth = FirebaseAuth.instance;
 
   //FireStore
-  final firestore = FirebaseFirestore.instance;
+  // final firestore = FirebaseFirestore.instance;
 
   //SIGN UP or Register
   void signUp() async {
     try {
-      UserCredential user = await auth.createUserWithEmailAndPassword(
+      await auth.createUserWithEmailAndPassword(
         email: emailControlller.text,
         password: passwordController.text,
       );
 
       //Save User Data in Firestore
-      await firestore.collection('users').doc(user.user!.uid).set({
-        'email': emailControlller.text,
-        'createdAt': Timestamp.now(),
-      });
+      // await firestore.collection('users').doc(user.user!.uid).set({
+      //   'email': emailControlller.text,
+      //   'createdAt': Timestamp.now(),
+      // });
 
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text("User Created & Saved")));
+      Navigator.push(
+      context ,
+      MaterialPageRoute(builder: (_)=> HomeScreen()),
+      );
+
+      // ScaffoldMessenger.of(
+      //   context,
+      // ).showSnackBar(SnackBar(content: Text("User Created & Saved")));
 
       print("User Created");
     } catch (e) {
@@ -51,10 +54,16 @@ class _AuthScreenState extends State<AuthScreen> {
         email: emailControlller.text,
         password: passwordController.text,
       );
+       
+        Navigator.push(
+      context ,
+      MaterialPageRoute(builder: (_)=> HomeScreen()),
+      );
 
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text("Logged in")));
+
+      // ScaffoldMessenger.of(
+      //   context,
+      // ).showSnackBar(SnackBar(content: Text("Logged in")));
 
       print("User Logged In");
     } catch (e) {
